@@ -8,6 +8,7 @@ import (
 	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/xiaofan0208/xadmin"
 )
 
 // 初始化日志
@@ -41,9 +42,32 @@ func initDb() {
 
 }
 
+func initStatic() {
+	beego.SetStaticPath("/static", "static")
+}
+
+func initArgs() {
+	args := os.Args
+	for _, v := range args {
+		// 创建数据库
+		if v == "-syncdb" {
+
+			os.Exit(0)
+		} else if v == "-initadmin" { // 更新菜单等
+			xadmin.InitAdmin()
+			os.Exit(0)
+		} else if v == "-initrbac" {
+			xadmin.InitMenus()
+			os.Exit(0)
+		}
+	}
+}
+
 func main() {
 	initLog()
 	initDb()
+	initStatic()
 
+	initArgs()
 	beego.Run()
 }
