@@ -5,14 +5,39 @@
 
         var url = "/admin/backenduser/list"
         var columns = [{
-            checkbox: true
-        }, {
-            field: 'id',
-            title: 'ID'
-        }, {
-            field: 'name',
-            title: '名字'
-        }]
+                checkbox: true
+            }, {
+                field: 'id',
+                title: 'ID',
+                align: "center",
+            }, {
+                field: 'name',
+                title: '名字',
+                align: "center",
+            },
+            {
+                field: "operate",
+                title: '操作',
+                align: "center",
+                width: "250px",
+                formatter: function (value, item, index) {
+                    var btnGroup = new Array()
+                    var one = {
+                        href: "http://www.baidu.com",
+                        name: "查看",
+                        click: "",
+                    }
+                    btnGroup.push(one)
+                    var one = {
+                        href: "",
+                        name: "删除",
+                        click: "deleteFunc",
+                    }
+                    btnGroup.push(one)
+                    return AddOperateBtnGroup(btnGroup, item)
+                }
+            }
+        ]
         //1.初始化Table
         var oTable = new TableInit(url, columns);
         oTable.Init();
@@ -24,7 +49,7 @@
     });
 
 
-    var TableInit = function ( requestUrl, columns ) {
+    var TableInit = function (requestUrl, columns) {
         var tableId = '#tb_bootstrap-table'
         var oTableInit = new Object();
         //初始化Table
@@ -43,7 +68,7 @@
                 pageNumber: 1, //初始化加载第一页，默认第一页
                 pageSize: 10, //每页的记录行数（*）
                 pageList: [10, 25, 50, 100], //可供选择的每页的行数（*）
-                search: true, //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+                search: false, //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
                 strictSearch: true,
                 showColumns: true, //是否显示所有的列
                 showRefresh: true, //是否显示刷新按钮
@@ -77,7 +102,7 @@
             $("#formSearch .search").each(function () {
                 var key = $(this).attr("id")
                 var value = $.trim($(this).val())
-                if(key != undefined && value != "") {
+                if (key != undefined && value != "") {
                     search[key] = value
                 }
             })
@@ -85,17 +110,17 @@
         }
         // 点击搜索
         $("#btnSearch").click(function () {
-            if( getSearchParam() == "{}") {
+            if (getSearchParam() == "{}") {
                 return false
             }
-            $(tableId).bootstrapTable('refresh' );
+            $(tableId).bootstrapTable('refresh');
         })
         // 重置搜索
-        $("#btnReset").click(function(){
-            $("#formSearch .search").each(function (){
+        $("#btnReset").click(function () {
+            $("#formSearch .search").each(function () {
                 $(this).val('')
             })
-            $(tableId).bootstrapTable('refresh' );
+            $(tableId).bootstrapTable('refresh');
         })
 
         return oTableInit;
@@ -111,4 +136,58 @@
         };
         return oInit;
     };
+
+
+    // 删除
+    function deleteFunc(item) {
+        console.log("----------test--item = ", item)
+    }
+
+</script>
+
+
+<script>
+    /* 用法：             
+            var btnGroup = new Array()
+            var one = {
+                href: "http://www.baidu.com",
+                name: "百度",
+                click: "test",   // 点击函数，参数为item
+            }
+            AddOperateBtnGroup(btnGroup, item)
+     */
+    function AddOperateBtnGroup(btnGroup, item) {
+        if (btnGroup == undefined || btnGroup.length == 0) {
+            return
+        }
+
+        var html = ""
+        html += "<div class='btn-group'>\
+            <button type='button' class='btn btn-default'>操作</button>\
+            <button type='button' class='btn btn-default dropdown-toggle dropdown-icon' data-toggle='dropdown' aria-expanded='false'>\
+            <span class='sr-only'>下拉切换</span>\
+            <div class='dropdown-menu' role='menu' style=''>"
+
+        for (var i = 0; i < btnGroup.length; i++) {
+            if ( i != 0 &&  i  % 3 == 0) {
+                html += "<div class='dropdown-divider'></div>"
+            }
+            // 如果存在点击事件，则优先处理点击事件
+            if(btnGroup[i].click != ''){
+                html += '<a class="dropdown-item"   href="javascript:void(0)"  onclick=eval(' + btnGroup[i].click + '(' +
+                JSON.stringify(item) + '))>' + btnGroup[i].name + '</a>'
+            } else{
+                html +=  '<a class="dropdown-item"   href="javascript:void(0)"  onclick=openurl("'+ btnGroup[i].href  + '") >' + btnGroup[i].name + '</a>'
+            }
+        }
+        html += "</div>\
+            </button>\
+        </div>";
+        return html
+    }
+
+    function openurl(url) {
+        window.location.href = url // 当前页面
+        // window.open(url,'_blank'); // 新页面
+    }
 </script>
