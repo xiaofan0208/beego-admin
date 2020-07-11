@@ -24,11 +24,12 @@
     });
 
 
-    var TableInit = function (requestUrl, columns) {
+    var TableInit = function ( requestUrl, columns ) {
+        var tableId = '#tb_bootstrap-table'
         var oTableInit = new Object();
         //初始化Table
         oTableInit.Init = function () {
-            $('#tb_bootstrap-table').bootstrapTable({
+            $(tableId).bootstrapTable({
                 url: requestUrl, //请求后台的URL（*）
                 method: 'get', //请求方式（*）
                 toolbar: '#toolbar', //工具按钮用哪个容器
@@ -59,22 +60,42 @@
 
         //得到查询的参数
         oTableInit.queryParams = function (params) {
-            console.log("------params = ", params)
             var temp = { //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
                 limit: params.limit, //页面大小
                 offset: params.offset, //页码
                 page: (params.offset / params.limit) + 1, //页码
                 sort: params.sort, //排序列名 
-                sortOrder: params.order //排位命令（desc，asc） 
+                sortOrder: params.order, //排位命令（desc，asc） 
+                search: getSearchParam()
             };
             return temp;
         };
 
-        $("#btnSearch").click(function () {
+        // 获取搜索参数
+        function getSearchParam() {
+            var search = {}
             $("#formSearch .search").each(function () {
-                var id = $(this).attr("id")
-                var value = $(this).val()
+                var key = $(this).attr("id")
+                var value = $.trim($(this).val())
+                if(key != undefined && value != "") {
+                    search[key] = value
+                }
             })
+            return JSON.stringify(search)
+        }
+        // 点击搜索
+        $("#btnSearch").click(function () {
+            if( getSearchParam() == "{}") {
+                return false
+            }
+            $(tableId).bootstrapTable('refresh' );
+        })
+        // 重置搜索
+        $("#btnReset").click(function(){
+            $("#formSearch .search").each(function (){
+                $(this).val('')
+            })
+            $(tableId).bootstrapTable('refresh' );
         })
 
         return oTableInit;
@@ -88,7 +109,6 @@
         oInit.Init = function () {
             //初始化页面上面的按钮事件
         };
-
         return oInit;
     };
 </script>
