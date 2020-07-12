@@ -1,5 +1,9 @@
 <script src="/static/plugins/bootstrap-table/dist/bootstrap-table.min.js"></script>
 <script src="/static/plugins/bootstrap-table/dist/locale/bootstrap-table-zh-CN.js"></script>
+
+<script src="/static/plugins/bootstrap-table/dist/extensions/fixed-columns/bootstrap-table-fixed-columns.min.js">
+</script>
+
 <script>
     $(function () {
 
@@ -7,13 +11,31 @@
         var columns = [{
                 checkbox: true
             }, {
-                field: 'id',
+                field: 'Id',
                 title: 'ID',
                 align: "center",
+                sortable: true,
             }, {
-                field: 'name',
+                field: 'Name',
                 title: '名字',
                 align: "center",
+                sortable: true,
+            },
+            {
+                field: 'Email',
+                title: 'Email',
+                align: "center",
+            },
+            {
+                field: 'IsAdmin',
+                title: '是否是管理员',
+                align: "center",
+                formatter: function (value, item, index) {
+                    if (value == 1) {
+                        return "是"
+                    }
+                    return "否"
+                }
             },
             {
                 field: "operate",
@@ -39,7 +61,8 @@
             }
         ]
         //1.初始化Table
-        var oTable = new TableInit(url, columns);
+        var fixedNumber = 2 //  固定列
+        var oTable = new TableInit(url, columns, fixedNumber);
         oTable.Init();
 
         //2.初始化Button的点击事件
@@ -48,8 +71,12 @@
 
     });
 
-
-    var TableInit = function (requestUrl, columns) {
+    /*
+        requestUrl: 请求地址
+        columns ： 列表显示
+        fixedNumber ： 固定列表(可为0)
+    */
+    var TableInit = function (requestUrl, columns, fixedNumber) {
         var tableId = '#tb_bootstrap-table'
         var oTableInit = new Object();
         //初始化Table
@@ -61,7 +88,7 @@
                 striped: true, //是否显示行间隔色
                 cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
                 pagination: true, //是否显示分页（*）
-                sortable: false, //是否启用排序
+                sortable: true, //是否启用排序
                 sortOrder: "asc", //排序方式
                 queryParams: oTableInit.queryParams, //传递参数（*）
                 sidePagination: "server", //分页方式：client客户端分页，server服务端分页（*）
@@ -79,7 +106,9 @@
                 showToggle: true, //是否显示详细视图和列表视图的切换按钮
                 cardView: false, //是否显示详细视图
                 detailView: false, //是否显示父子表
-                columns: columns
+                columns: columns,
+                fixedColumns: true,
+                fixedNumber: fixedNumber, //固定列数
             });
         };
 
@@ -88,7 +117,7 @@
             var temp = { //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
                 limit: params.limit, //页面大小
                 offset: params.offset, //页码
-                page: (params.offset / params.limit) + 1, //页码
+                //    page: (params.offset / params.limit) + 1, //页码
                 sort: params.sort, //排序列名 
                 sortOrder: params.order, //排位命令（desc，asc） 
                 search: getSearchParam()
@@ -130,19 +159,67 @@
     var ButtonInit = function () {
         var oInit = new Object();
         var postdata = {};
-
+        //初始化页面上面的按钮事件
         oInit.Init = function () {
-            //初始化页面上面的按钮事件
+            var tableId = '#tb_bootstrap-table'
+            // 新增
+            $("#btn_add").click(function () {
+                console.log("-----新增---  ")
+            })
+
+            // 批量删除
+            $("#btn_delete").click(function () {
+                var ids = []
+                var rows = $(tableId).bootstrapTable('getSelections');
+                for (var i = 0; i < rows.length; i++) {
+                    ids.push(rows[i].Id)
+                }
+                showModal(ids.join(","))
+            })
         };
         return oInit;
     };
 
-
     // 删除
     function deleteFunc(item) {
-        console.log("----------test--item = ", item)
+        showModal(item.Id)
     }
+    // 弹出模块框
+    function showModal(id) {
+        $('#deleteModal').modal('show')
+        $("#modalDataId").val(id)
+    }
+    // 模态框确定
+    function deleteSure() {
+        var id = $("#modalDataId").val()
+        $('#deleteModal').modal('hide')
+        deleteBatch(id)
+    }
+    // 批量删除
+    function deleteBatch(ids) {
+        var url = "/admin/backenduser/delete"
+        $.ajax({
+            type: "POST", //请求方式
+            dataType: "json", //请求的媒体类型
+            url: url, //请求地址
+            data: { ids :ids }, //数据，json字符串
+            //请求成功
+            success: function (result) {
+                console.log(result);
+                // 删除成功
+                if(result != undefined && result.code == 0 ){
+                    var tableId = '#tb_bootstrap-table'
+                    $(tableId).bootstrapTable('refresh');
+                }
+            },
+            //请求失败，包含具体的错误信息
+            error: function (e) {
+                console.log(e.status);
+                console.log(e.responseText);
+            }
+        });
 
+    }
 </script>
 
 
@@ -169,15 +246,17 @@
             <div class='dropdown-menu' role='menu' style=''>"
 
         for (var i = 0; i < btnGroup.length; i++) {
-            if ( i != 0 &&  i  % 3 == 0) {
+            if (i != 0 && i % 3 == 0) {
                 html += "<div class='dropdown-divider'></div>"
             }
             // 如果存在点击事件，则优先处理点击事件
-            if(btnGroup[i].click != ''){
-                html += '<a class="dropdown-item"   href="javascript:void(0)"  onclick=eval(' + btnGroup[i].click + '(' +
-                JSON.stringify(item) + '))>' + btnGroup[i].name + '</a>'
-            } else{
-                html +=  '<a class="dropdown-item"   href="javascript:void(0)"  onclick=openurl("'+ btnGroup[i].href  + '") >' + btnGroup[i].name + '</a>'
+            if (btnGroup[i].click != '') {
+                html += '<a class="dropdown-item"   href="javascript:void(0)"  onclick=eval(' + btnGroup[i].click +
+                    '(' +
+                    JSON.stringify(item) + '))>' + btnGroup[i].name + '</a>'
+            } else {
+                html += '<a class="dropdown-item"   href="javascript:void(0)"  onclick=openurl("' + btnGroup[i].href +
+                    '") >' + btnGroup[i].name + '</a>'
             }
         }
         html += "</div>\
