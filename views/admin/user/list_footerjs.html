@@ -3,8 +3,9 @@
 
 <script src="/static/plugins/bootstrap-table/dist/extensions/fixed-columns/bootstrap-table-fixed-columns.min.js">
 </script>
+<script src="/static/AdminLTE3.0/plugins/sweetalert2/sweetalert2.min.js"></script>
 
-<script src="/static/js/my-bootstrap-table-list.js"></script>
+<script src="/static/js/my-bootstrap-table-list.js?v=1.0"></script>
 
 
 <script>
@@ -47,18 +48,25 @@
                 width: "250px",
                 formatter: function (value, item, index) {
                     var btnGroup = new Array()
-                    var one = {
+                    var checkBtn = {
                         href: "http://www.baidu.com",
                         name: "查看",
                         click: "",
                     }
-                    btnGroup.push(one)
-                    var one = {
+                    var editBtn = {
+                        href: "",
+                        name: "编辑",
+                        click: "",
+                    }
+
+                    var deleteBtn = {
                         href: "",
                         name: "删除",
                         click: "deleteFunc",
                     }
-                    btnGroup.push(one)
+                    btnGroup.push(checkBtn)
+                    btnGroup.push(editBtn)
+                    btnGroup.push(deleteBtn)
                     return AddOperateBtnGroup(btnGroup, item)
                 }
             }
@@ -108,14 +116,37 @@
                 if (result != undefined && result.code == 0) {
                     var tableId = '#tb_bootstrap-table'
                     $(tableId).bootstrapTable('refresh');
+                    swalDefaultSuccess("删除成功")
                 }
             },
             //请求失败，包含具体的错误信息
             error: function (e) {
-                console.log(e.status);
-                console.log(e.responseText);
+                swalDefaultError(e.msg)
             }
         });
 
+    }
+</script>
+
+<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+    });
+    // 成功弹窗
+    function swalDefaultSuccess(title) {
+        Toast.fire({
+            icon: 'success',
+            title: title
+        })
+    }
+    // 错误弹窗提示
+    function swalDefaultError(title) {
+        Toast.fire({
+            icon: 'error',
+            title: title
+        })
     }
 </script>

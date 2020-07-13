@@ -125,8 +125,8 @@
 
         var html = ""
         html += "<div class='btn-group'>\
-            <button type='button' class='btn btn-default'>操作</button>\
-            <button type='button' class='btn btn-default dropdown-toggle dropdown-icon' data-toggle='dropdown' aria-expanded='false'>\
+            <button type='button' class='btn btn-info'>操作</button>\
+            <button type='button' class='btn btn-info dropdown-toggle dropdown-icon' data-toggle='dropdown' aria-expanded='false'>\
             <span class='sr-only'>下拉切换</span>\
             <div class='dropdown-menu' role='menu' style=''>"
 
