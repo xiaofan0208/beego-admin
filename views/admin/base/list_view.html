@@ -20,10 +20,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
     <link rel="stylesheet" href="/static/plugins/bootstrap-table/dist/bootstrap-table.min.css">
-    <link rel="stylesheet" href="/static/plugins/bootstrap-table/dist/extensions/fixed-columns/bootstrap-table-fixed-columns.min.css">
+    <link rel="stylesheet"
+        href="/static/plugins/bootstrap-table/dist/extensions/fixed-columns/bootstrap-table-fixed-columns.min.css">
 
     <link rel="stylesheet" href="/static/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
- 
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -43,6 +44,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/admin">首页</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{.PageName}}</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{.PageDesc}}</li>
                 </ol>
             </nav>
 
@@ -56,7 +58,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="card-body">
                         <form id="formSearch" class="form-horizontal row">
                             {{ .LayoutSearch }}
-                            
+
                             <div class="col-md-3" style="text-align:left;">
                                 <div class="form-group">
                                     <button type="button" style="margin-left:30px" id="btnSearch"
@@ -69,23 +71,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                 </div>
                 {{end}}
-                
-                            
-            <div class="card">
-                <div class="card-body">
-                    <div id="toolbar" class="btn-group">
-                        <button id="btn_add" type="button" class="btn btn-default">
-                            <span class="fa fa-plus" aria-hidden="true"></span>新增
-                        </button>
-                        <button id="btn_delete" type="button" class="btn btn-default">
-                            <span class="fa fa-times" aria-hidden="true"></span>删除
-                        </button>
-                    </div>
-                    <table id="tb_bootstrap-table"></table>
-                </div>
-            </div>
 
-            <!-- {{.LayoutContent}} -->
+
+                <div class="card">
+                    <div class="card-body">
+                        <div id="toolbar" class="btn-group">
+                            <button id="btn_add" type="button" class="btn btn-default">
+                                <span class="fa fa-plus" aria-hidden="true"></span>新增
+                            </button>
+                            <button id="btn_delete" type="button" class="btn btn-default">
+                                <span class="fa fa-times" aria-hidden="true"></span>删除
+                            </button>
+                        </div>
+
+
+                        <table id="tb_bootstrap-table"></table>
+
+
+                    </div>
+                </div>
+
+                <!-- {{.LayoutContent}} -->
             </div>
             <!-- /.content -->
         </div>
@@ -107,7 +113,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- ./wrapper -->
 
-    
+
     <!-- Modal -->
     {{template "admin/components/tipsmodal.html" .}}
 
