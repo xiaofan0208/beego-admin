@@ -1,0 +1,58 @@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"></h3>
+    </div>
+
+    <div class="card-body">
+        <form>
+            <input type="hidden" id="Id" name="Id" value="{{.Record.Id}}">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">名称</label>
+                        <input type="text" class="form-control" id="Name" name="Name" value="{{.Record.Name}}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Email">邮箱地址</label>
+                        <input type="email" class="form-control" id="Email" name="Email" value="{{.Record.Email}}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Mobile">手机号</label>
+                        <input type="text" class="form-control" id="Mobile" name="Mobile"  value="{{.Record.Mobile}}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Salt">加盐</label>
+                        <input type="email" class="form-control" id="Salt" name="Salt" value="{{.Record.Salt}}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="Avatar">头像</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="Avatar">
+                                <label class="custom-file-label" for="Avatar">选择文件</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="">上传</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
