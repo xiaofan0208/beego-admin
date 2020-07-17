@@ -1,10 +1,10 @@
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title"></h3>
+        <h3 class="card-title">详情</h3>
     </div>
 
     <div class="card-body">
-        <form>
+        <form id="BackenduserForm" method="post" action="{{.formURL}}">
             <input type="hidden" id="Id" name="Id" value="{{.Record.Id}}">
             <div class="row">
                 <div class="col-md-6">
@@ -25,13 +25,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="Mobile">手机号</label>
-                        <input type="text" class="form-control" id="Mobile" name="Mobile"  value="{{.Record.Mobile}}">
+                        <input type="text" class="form-control" id="Mobile" name="Mobile" value="{{.Record.Mobile}}">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="Salt">加盐</label>
-                        <input type="email" class="form-control" id="Salt" name="Salt" value="{{.Record.Salt}}">
+                        <input type="text" class="form-control" id="Salt" name="Salt" value="{{.Record.Salt}}">
                     </div>
                 </div>
             </div>
@@ -52,7 +52,34 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Salt">是否是管理员</label>
+                        <div>
+                            <!-- <input type="hidden" class="form-control" id="IsAdmin" name="IsAdmin" value="{{.Record.Salt}}"> -->
+                            <input type="checkbox" class="form-control" id="IsAdmin" name="IsAdmin" checked
+                                data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
         </form>
 
     </div>
+</div>
+
+
+<div>
+    {{if .canDelete}}
+    <button type="button" class="btn btn-danger">删除</button>
+    {{end}}
+    <button  type="submit" class="btn btn-success" style="left: 20px;" onclick="SaveSubmit()">保存</button>
+    
+    <a href="{{.listURL}}">
+        <button type="button" class="btn btn-primary" style="left: 20px;">列表</button>
+    </a>
 </div>

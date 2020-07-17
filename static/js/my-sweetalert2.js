@@ -1,3 +1,9 @@
+/***
+ * 
+ * 
+    <script src="/static/AdminLTE3.0/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="/static/js/my-sweetalert2.js"></script>
+ */
 // SweetAlert2  弹窗
 const Toast = Swal.mixin({
     toast: true,
