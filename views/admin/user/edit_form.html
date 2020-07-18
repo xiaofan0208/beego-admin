@@ -56,16 +56,42 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="Salt">是否是管理员</label>
+                        <label for="IsAdmin">是否是管理员</label>
                         <div>
                             <!-- <input type="hidden" class="form-control" id="IsAdmin" name="IsAdmin" value="{{.Record.Salt}}"> -->
                             <input type="checkbox" class="form-control" id="IsAdmin" name="IsAdmin" checked
                                 data-bootstrap-switch data-off-color="danger" data-on-color="success">
                         </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Active">是否可以使用</label>
+                        <div>
+                            <select class="form-control" id="Active" name="Active">
+                                <option value="">--请选择--</option>
+                                <option value="1" {{if eq true  (  .Record.Active) }}selected{{end}}>是</option>
+                                <option value="0" {{if eq false (  .Record.Active)}}selected{{end}}>否</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Created">创建时间</label>
+                        <input type="text" class="form-control" id="Created" name="Created" value="{{.Record.Created}}" readonly>
                     </div>
                 </div>
 
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Updated">更新时间</label>
+                        <input type="text" class="form-control" id="Updated" name="Updated" value="{{.Record.Updated}}" readonly>
+                    </div>
+                </div>
             </div>
         </form>
 
@@ -77,8 +103,10 @@
     {{if .canDelete}}
     <button type="button" class="btn btn-danger">删除</button>
     {{end}}
-    <button  type="submit" class="btn btn-success" style="left: 20px;" onclick="SaveSubmit()">保存</button>
-    
+
+    {{if .canEdit}}
+    <button  type="submit" class="btn btn-success" style="left: 20px;" id="btnFormSubmit">保存</button>
+    {{end}}
     <a href="{{.listURL}}">
         <button type="button" class="btn btn-primary" style="left: 20px;">列表</button>
     </a>
