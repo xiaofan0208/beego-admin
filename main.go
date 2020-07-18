@@ -9,6 +9,7 @@ import (
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/xiaofan0208/xadmin"
+	_ "github.com/xiaofan0208/xbase/utils"
 )
 
 // 初始化日志

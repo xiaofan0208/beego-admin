@@ -33,6 +33,15 @@
                 }
             },
             {
+                field: 'Created',
+                title: '创建时间',
+                align: "center",
+                formatter: function (value, item, index) {
+                    var d = new Date(item.Created);
+                    return formatDate(d)
+                }
+            },
+            {
                 field: "operate",
                 title: '操作',
                 align: "center",
