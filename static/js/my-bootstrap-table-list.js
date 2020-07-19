@@ -87,11 +87,11 @@
         var oInit = new Object();
         var postdata = {};
         //初始化页面上面的按钮事件
-        oInit.Init = function () {
+        oInit.Init = function (addURL) {
             var tableId = '#tb_bootstrap-table'
             // 新增
             $("#btn_add").click(function () {
-                console.log("-----新增---  ")
+                window.location.href=addURL
             })
 
             // 批量删除

@@ -58,9 +58,11 @@
                     <div class="form-group">
                         <label for="IsAdmin">是否是管理员</label>
                         <div>
-                            <!-- <input type="hidden" class="form-control" id="IsAdmin" name="IsAdmin" value="{{.Record.Salt}}"> -->
-                            <input type="checkbox" class="form-control" id="IsAdmin" name="IsAdmin" checked
-                                data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                            <select class="form-control" id="IsAdmin" name="IsAdmin">
+                                <option value="">--请选择--</option>
+                                <option value="1" {{if .Record}}{{if eq true (.Record.IsAdmin) }}selected{{end}}{{end}}>是</option>
+                                <option value="0" {{if .Record}}{{if eq false (.Record.IsAdmin)}}selected{{end}}{{end}}>否</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -70,8 +72,8 @@
                         <div>
                             <select class="form-control" id="Active" name="Active">
                                 <option value="">--请选择--</option>
-                                <option value="1" {{if eq true  (  .Record.Active) }}selected{{end}}>是</option>
-                                <option value="0" {{if eq false (  .Record.Active)}}selected{{end}}>否</option>
+                                <option value="1" {{if .Record}}{{if eq true  (.Record.Active) }}selected{{end}}{{end}}>是</option>
+                                <option value="0" {{if .Record}}{{if eq false (.Record.Active)}}selected{{end}}{{end}}>否</option>
                             </select>
                         </div>
                     </div>
@@ -82,14 +84,14 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="Created">创建时间</label>
-                        <input type="text" class="form-control" id="Created" name="Created" value="{{.Record.Created | timeformat}}" readonly>
+                        <input type="text" class="form-control" id="Created" name="Created" value="{{if .Record}}{{.Record.Created | timeformat}}{{end}}" readonly>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="Updated">更新时间</label>
-                        <input type="text" class="form-control" id="Updated" name="Updated" value="{{.Record.Updated | timeformat}}" readonly>
+                        <input type="text" class="form-control" id="Updated" name="Updated" value="{{if .Record}}{{.Record.Updated | timeformat}}{{end}}" readonly>
                     </div>
                 </div>
             </div>
@@ -104,7 +106,7 @@
     <button type="button" class="btn btn-danger">删除</button>
     {{end}}
 
-    {{if .canEdit}}
+    {{if or .canEdit .canCreate}}
     <button  type="submit" class="btn btn-success" style="left: 20px;" id="btnFormSubmit">保存</button>
     {{end}}
     <a href="{{.listURL}}">

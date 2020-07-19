@@ -78,12 +78,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="card">
                     <div class="card-body">
                         <div id="toolbar" class="btn-group">
+                            {{if .canCreate}}
                             <button id="btn_add" type="button" class="btn btn-success">
                                 <span class="fa fa-plus" aria-hidden="true"></span>新增
                             </button>
+                            {{end}}
+                            {{if .canDelete}}
                             <button id="btn_delete" type="button" class="btn btn-danger">
                                 <span class="fa fa-times" aria-hidden="true"></span>删除
                             </button>
+                            {{end}}
                         </div>
 
 
@@ -138,7 +142,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
     <script src="/static/AdminLTE3.0/plugins/sweetalert2/sweetalert2.min.js"></script>
 
-    <script src="/static/js/my-bootstrap-table-list.js?v=1.0"></script>
+    <script src="/static/js/my-bootstrap-table-list.js?v=2.0"></script>
     <script src="/static/js/my-sweetalert2.js"></script>
 
     <script src="/static/js/my-timetool.js"></script>

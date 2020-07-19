@@ -49,7 +49,7 @@
                 formatter: function (value, item, index) {
                     var btnGroup = new Array()
                     var checkBtn = {
-                        href: "http://www.baidu.com",
+                        href: "",
                         name: "查看",
                         click: "",
                     }
@@ -78,7 +78,7 @@
 
         //2.初始化Button的点击事件
         var oButtonInit = new ButtonInit();
-        oButtonInit.Init();
+        oButtonInit.Init( {{.createURL}} );
 
     });
 
