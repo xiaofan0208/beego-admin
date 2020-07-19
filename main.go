@@ -8,8 +8,8 @@ import (
 	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/xiaofan0208/xadmin"
-	_ "github.com/xiaofan0208/xbase/utils"
+	xadmin "github.com/xiaofan0208/go-xadmin"
+	_ "github.com/xiaofan0208/go-xbase/utils"
 )
 
 // 初始化日志

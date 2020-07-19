@@ -1,7 +1,7 @@
 package routers
 
 import (
-	xrouters "github.com/xiaofan0208/xadmin/routers"
+	xrouters "github.com/xiaofan0208/go-xadmin/routers"
 )
 
 func init() {

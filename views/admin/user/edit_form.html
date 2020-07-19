@@ -84,14 +84,16 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="Created">创建时间</label>
-                        <input type="text" class="form-control" id="Created" name="Created" value="{{if .Record}}{{.Record.Created | timeformat}}{{end}}" readonly>
+                        <input type="hidden" class="form-control" id="Created" name="Created" value="{{.Record.Created}}" >
+                        <input type="text" class="form-control" value="{{if .Record}}{{.Record.Created | timeformat}}{{end}}" readonly>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="Updated">更新时间</label>
-                        <input type="text" class="form-control" id="Updated" name="Updated" value="{{if .Record}}{{.Record.Updated | timeformat}}{{end}}" readonly>
+                        <input type="hidden" class="form-control" id="Updated" name="Updated" value="{{.Record.Updated}}" >
+                        <input type="text" class="form-control"  value="{{if .Record}}{{.Record.Updated | timeformat}}{{end}}" readonly>
                     </div>
                 </div>
             </div>
