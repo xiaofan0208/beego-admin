@@ -24,11 +24,11 @@
 				$(tableId).bootstrapValidator('disableSubmitButtons', false);
 				//跳转
 				if(result != undefined && result.code == 0 ) {
-					swalDefaultSuccess("正在跳转" , function(){
+					success_prompt_alert("正在跳转" , function(){
 						window.location.href=JumpURL
 					})
 				}else{
-					swalDefaultError(result.msg)
+					error_prompt_alert(result.msg)
 				}
 			});
 		})

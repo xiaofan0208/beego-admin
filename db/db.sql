@@ -40,7 +40,7 @@ CREATE TABLE `admin_rbac_resource` (
   `title` varchar(255) NOT NULL DEFAULT '' COMMENT '资源标题',
   `pid` bigint(20) NOT NULL DEFAULT '0' COMMENT '父资源ID',
   `type` bigint(20) NOT NULL DEFAULT '0' COMMENT '类型 1：panel 2：菜单 3：按钮',
-  `unique_flag` varchar(255) NOT NULL DEFAULT '' COMMENT '唯一标记',
+  `name` varchar(255) NOT NULL DEFAULT '' COMMENT '名称：唯一标记',
   `icon` varchar(255) NOT NULL DEFAULT '' COMMENT '图标',
   `level` bigint(20) NOT NULL DEFAULT '0' COMMENT '层级',
   `link` varchar(255) NOT NULL DEFAULT '' COMMENT '链接',
