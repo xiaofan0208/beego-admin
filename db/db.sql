@@ -48,9 +48,9 @@ CREATE TABLE `admin_rbac_resource` (
   `desc` varchar(255) NOT NULL DEFAULT '' COMMENT '描述',
   `order` bigint(20) NOT NULL DEFAULT '0' COMMENT '排序',
   `status` tinyint(3) NOT NULL DEFAULT '0' COMMENT '状态：1-启用 2-禁用',
-  `created` bigint(20) NOT NULL DEFAULT '0',
-  `updated` bigint(20) NOT NULL DEFAULT '0',
-  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `created` bigint(20) NOT NULL DEFAULT '0'  COMMENT '创建时间',
+  `updated` bigint(20) NOT NULL DEFAULT '0' COMMENT '更新时间',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0'  COMMENT '是否删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
