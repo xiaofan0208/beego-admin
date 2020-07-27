@@ -3,26 +3,26 @@ var menudata = [{
     "id": 1,
     "icon": "fas fa-tachometer-alt",
     "link": "/admin",
-    "name": "首页",
+    "title": "首页",
     "active": true,
     "children": [{
         "id": 2,
         "icon": "fas fa-circle",
         "link": "/admin/backenduser",
-        "name": "菜单二",
+        "title": "菜单二",
         "active": false,
     }, {
         "id": 3,
         "icon": "fas fa-circle",
         "link": "#",
-        "name": "菜单三",
+        "title": "菜单三",
         "active": true,
     }]
 }, {
     "id": 4,
     "icon": "fas fa-th",
     "link": "#",
-    "name": "菜单四",
+    "title": "菜单四",
     "active": false,
 }];
 */
@@ -63,7 +63,7 @@ class TreeMenuView {
             html += '<li class="nav-item has-treeview ' + open + '">\
             <a href="' + menudata[i].link + '" class="nav-link ' + active + '">\
             <i class="nav-icon ' + menudata[i].icon + '"></i>\
-            <p>' + menudata[i].name;
+            <p>' + menudata[i].title;
             if (menudata[i].children != undefined && menudata[i].children.length > 0) {
                 html += '<i class="right fas fa-angle-left"></i>'
             }
@@ -71,7 +71,7 @@ class TreeMenuView {
              </a>'
 
             if (menudata[i].children != undefined && menudata[i].children.length > 0) {
-                var childHtml = addMenuChild(menudata[i].children)
+                var childHtml = this.addMenuChild(menudata[i].children)
                 if (childHtml != "") {
                     html += '<ul class="nav nav-treeview">'
                     html += childHtml

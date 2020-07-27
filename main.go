@@ -52,12 +52,11 @@ func initArgs() {
 	for _, v := range args {
 		// 创建数据库
 		if v == "-syncdb" {
-
 			os.Exit(0)
-		} else if v == "-initadmin" { // 更新菜单等
+		} else if v == "-initadmin" { // 更新管理员信息
 			xadmin.InitAdmin()
 			os.Exit(0)
-		} else if v == "-initrbac" {
+		} else if v == "-initrbac" { // 更新菜单等
 			xadmin.InitMenus()
 			os.Exit(0)
 		}

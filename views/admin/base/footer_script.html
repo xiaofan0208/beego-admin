@@ -14,8 +14,10 @@
 
 <script>
     $(function () {
+       
+        console.log({{.Menus}})
         // 创建菜单
-        var treeMenu = new TreeMenuView("#treemenu", undefined)
+        var treeMenu = new TreeMenuView("#treemenu", {{.Menus}})
         treeMenu.createview()
     })
 </script>
