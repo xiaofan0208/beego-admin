@@ -4,3 +4,9 @@
 
 
 logs/*
+
+conf/prod.conf
+
+*.tar.gz
+
+pack/*

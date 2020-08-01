@@ -41,7 +41,7 @@ class TreeMenuView {
         if(this.menudata == undefined){
             return
         }
-        var html = '<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">'
+        var html = '<ul id="sidebar" class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">'
         html += this.addMenuChild(this.menudata)
         html += '</ul>'
         $(this.divId).empty()
@@ -56,12 +56,21 @@ class TreeMenuView {
         for (var i = 0; i < menudata.length; i++) {
             var active = ""
             var open = ""
+            var link = menudata[i].link
+            var has = ""
+
             if (menudata[i].active) {
                 active = "active"
                 open = "menu-open"
             }
-            html += '<li class="nav-item has-treeview ' + open + '">\
-            <a href="' + menudata[i].link + '" class="nav-link ' + active + '">\
+            if(link == ""){
+                link = "#"
+            }
+            if (menudata[i].children != undefined && menudata[i].children.length > 0)  {
+                has = "has-treeview"
+            }
+            html += '<li class="nav-item  ' + has + ' ' +  open + '">\
+            <a href="' + link + '" class="nav-link ' + active + '">\
             <i class="nav-icon ' + menudata[i].icon + '"></i>\
             <p>' + menudata[i].title;
             if (menudata[i].children != undefined && menudata[i].children.length > 0) {
