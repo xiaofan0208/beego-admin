@@ -1,0 +1,117 @@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">详情</h3>
+    </div>
+
+    <div class="card-body">
+        <form id="BackenduserForm" method="post" action="{{.formURL}}">
+            <input type="hidden" id="Id" name="Id" value="{{.Record.Id}}">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">名称</label>
+                        <input type="text" class="form-control" id="Name" name="Name" value="{{.Record.Name}}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Email">邮箱地址</label>
+                        <input type="email" class="form-control" id="Email" name="Email" value="{{.Record.Email}}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Mobile">手机号</label>
+                        <input type="text" class="form-control" id="Mobile" name="Mobile" value="{{.Record.Mobile}}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Salt">加盐</label>
+                        <input type="text" class="form-control" id="Salt" name="Salt" value="{{.Record.Salt}}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="Avatar">头像</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="Avatar">
+                                <label class="custom-file-label" for="Avatar">选择文件</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="">上传</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="IsAdmin">是否是管理员</label>
+                        <div>
+                            <select class="form-control" id="IsAdmin" name="IsAdmin">
+                                <option value="">--请选择--</option>
+                                <option value="1" {{if .Record}}{{if eq true (.Record.IsAdmin) }}selected{{end}}{{end}}>是</option>
+                                <option value="0" {{if .Record}}{{if eq false (.Record.IsAdmin)}}selected{{end}}{{end}}>否</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Active">是否可以使用</label>
+                        <div>
+                            <select class="form-control" id="Active" name="Active">
+                                <option value="">--请选择--</option>
+                                <option value="1" {{if .Record}}{{if eq true  (.Record.Active) }}selected{{end}}{{end}}>是</option>
+                                <option value="0" {{if .Record}}{{if eq false (.Record.Active)}}selected{{end}}{{end}}>否</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Created">创建时间</label>
+                        <input type="hidden" class="form-control" id="Created" name="Created" value="{{.Record.Created}}" >
+                        <input type="text" class="form-control" value="{{if .Record}}{{.Record.Created | timeformat}}{{end}}" readonly>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Updated">更新时间</label>
+                        <input type="hidden" class="form-control" id="Updated" name="Updated" value="{{.Record.Updated}}" >
+                        <input type="text" class="form-control"  value="{{if .Record}}{{.Record.Updated | timeformat}}{{end}}" readonly>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+<div>
+    {{if .canDelete}}
+    <button type="button" class="btn btn-danger">删除</button>
+    {{end}}
+
+    {{if or .canEdit .canCreate}}
+    <button  type="submit" class="btn btn-success" style="left: 20px;" id="btnFormSubmit">保存</button>
+    {{end}}
+    <a href="{{.listURL}}">
+        <button type="button" class="btn btn-primary" style="left: 20px;">列表</button>
+    </a>
+</div>

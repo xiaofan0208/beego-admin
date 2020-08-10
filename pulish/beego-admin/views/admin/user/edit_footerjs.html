@@ -1,0 +1,36 @@
+
+<script>
+	// switch 开关
+	$(function () {
+		$("input[data-bootstrap-switch]").each(function () {
+			var state = false
+			if ({{.Record.IsAdmin}} == 1) {
+				state = true
+			}
+			//手动设置按钮状态
+			$(this).bootstrapSwitch('state', state);
+			//点击触发事件，监听按钮状态
+			$(this).on('switchChange.bootstrapSwitch', function (event, state) {
+
+			})
+		});
+	})
+</script>
+
+<script>
+	$(function () {
+		var tableId = "#BackenduserForm"
+
+		var fields = {
+				Name: {
+					message: '用户名验证失败',
+					validators: {
+						notEmpty: {
+							message: '用户名不能为空'
+						},
+					}
+				}
+			}
+		Validator(tableId , {{.listURL}} , fields)
+	})
+</script>

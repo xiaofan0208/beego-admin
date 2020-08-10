@@ -1,0 +1,184 @@
+2020/07/26 00:19:08.725 [I] [main.go:30]  初始化日志 
+2020/07/26 00:19:08.726 [I] [main.go:35]  初始化数据库 
+2020/07/26 00:19:08.924 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/27 22:11:09.165 [I] [main.go:30]  初始化日志 
+2020/07/27 22:11:09.166 [I] [main.go:35]  初始化数据库 
+2020/07/27 22:11:09.934 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/27 22:44:11.226 [I] [main.go:30]  初始化日志 
+2020/07/27 22:44:11.226 [I] [main.go:35]  初始化数据库 
+2020/07/27 22:44:11.401 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/27 22:45:07.011 [I] [filter.go:45]  ----------m.Link =  /admin/backenduser 
+2020/07/27 22:45:07.097 [I] [filter.go:45]  ----------m.Link =  /admin/backenduser 
+2020/07/27 22:45:11.431 [I] [filter.go:45]  ----------m.Link =  /admin/backenduser 
+2020/07/27 22:45:11.461 [I] [filter.go:45]  ----------m.Link =  /admin/backenduser 
+2020/07/27 22:45:11.585 [I] [filter.go:45]  ----------m.Link =  /admin/backenduser 
+2020/07/27 22:45:18.785 [I] [filter.go:45]  ----------m.Link =  /admin/backenduser 
+2020/07/27 22:45:18.924 [I] [filter.go:45]  ----------m.Link =  /admin/backenduser 
+2020/07/27 22:46:38.181 [I] [main.go:30]  初始化日志 
+2020/07/27 22:46:38.182 [I] [main.go:35]  初始化数据库 
+2020/07/27 22:46:38.352 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/27 22:54:13.652 [I] [main.go:30]  初始化日志 
+2020/07/27 22:54:13.653 [I] [main.go:35]  初始化数据库 
+2020/07/27 22:54:13.824 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/27 22:55:09.447 [I] [main.go:30]  初始化日志 
+2020/07/27 22:55:09.447 [I] [main.go:35]  初始化数据库 
+2020/07/27 22:55:09.614 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/27 22:56:17.315 [I] [main.go:30]  初始化日志 
+2020/07/27 22:56:17.316 [I] [main.go:35]  初始化数据库 
+2020/07/27 22:56:17.478 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/27 22:56:54.738 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/login?redirect_to=%2Fadmin%2Fbackenduser 
+2020/07/27 22:56:54.831 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/login?redirect_to=%2Fadmin%2Fbackenduser 
+2020/07/27 22:56:59.281 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/login?redirect_to=/admin/backenduser 
+2020/07/27 22:56:59.313 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser 
+2020/07/27 22:56:59.433 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser/list?limit=10&offset=0&sortOrder=asc&search=%7B%7D&_=1595861819359 
+2020/07/27 22:57:10.005 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser 
+2020/07/27 22:57:10.134 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser/list?limit=10&offset=0&sortOrder=asc&search=%7B%7D&_=1595861830034 
+2020/07/27 22:57:29.477 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/ 
+2020/07/27 22:57:37.770 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 22:58:21.474 [I] [main.go:30]  初始化日志 
+2020/07/27 22:58:21.474 [I] [main.go:35]  初始化数据库 
+2020/07/27 22:58:21.637 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/27 22:58:24.988 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/login?redirect_to=%2Fadmin 
+2020/07/27 22:58:24.989 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 22:58:25.058 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/login?redirect_to=%2Fadmin 
+2020/07/27 22:58:25.059 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 22:58:32.575 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/login?redirect_to=/admin 
+2020/07/27 22:58:32.576 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 22:58:32.609 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 22:58:32.610 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 22:59:10.301 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 22:59:10.302 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 22:59:13.566 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/ 
+2020/07/27 22:59:13.568 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 22:59:18.996 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser 
+2020/07/27 22:59:18.998 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 22:59:19.305 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser/list?limit=10&offset=0&sortOrder=asc&search=%7B%7D&_=1595861959073 
+2020/07/27 22:59:19.308 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:01:17.656 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser 
+2020/07/27 23:01:17.658 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:01:17.908 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser/list?limit=10&offset=0&sortOrder=asc&search=%7B%7D&_=1595862077715 
+2020/07/27 23:01:17.909 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:01:20.682 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:01:20.684 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:02:43.275 [I] [main.go:30]  初始化日志 
+2020/07/27 23:02:43.276 [I] [main.go:35]  初始化数据库 
+2020/07/27 23:02:43.449 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/27 23:02:49.245 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/login?redirect_to=%2Fadmin 
+2020/07/27 23:02:49.341 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:02:49.442 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/login?redirect_to=%2Fadmin 
+2020/07/27 23:02:49.444 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:02:54.674 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/login?redirect_to=/admin 
+2020/07/27 23:02:54.675 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:02:54.706 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:02:54.708 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:05:55.466 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser 
+2020/07/27 23:05:55.468 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:05:55.997 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser/list?limit=10&offset=0&sortOrder=asc&search=%7B%7D&_=1595862355570 
+2020/07/27 23:05:55.998 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:06:00.516 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser/edit/3 
+2020/07/27 23:06:00.518 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:07:49.817 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser/edit/3 
+2020/07/27 23:07:49.818 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:07:53.291 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:07:53.291 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:08:00.121 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:08:00.122 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:08:05.844 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser 
+2020/07/27 23:08:05.845 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:08:06.113 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser/list?limit=10&offset=0&sortOrder=asc&search=%7B%7D&_=1595862485911 
+2020/07/27 23:08:06.114 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:08:13.358 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser 
+2020/07/27 23:08:13.359 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:08:13.599 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser/list?limit=10&offset=0&sortOrder=asc&search=%7B%7D&_=1595862493422 
+2020/07/27 23:08:13.600 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:08:17.336 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:08:17.337 [I] [filter.go:43]  ---MenuFilterFunc------------len(allmenus) =  2 
+2020/07/27 23:09:13.086 [I] [main.go:30]  初始化日志 
+2020/07/27 23:09:13.086 [I] [main.go:35]  初始化数据库 
+2020/07/27 23:09:13.254 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/27 23:09:18.361 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/login?redirect_to=%2Fadmin 
+2020/07/27 23:09:18.454 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/login?redirect_to=%2Fadmin 
+2020/07/27 23:09:23.295 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/login?redirect_to=/admin 
+2020/07/27 23:09:23.327 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:09:34.509 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser 
+2020/07/27 23:09:34.770 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser/list?limit=10&offset=0&sortOrder=asc&search=%7B%7D&_=1595862574570 
+2020/07/27 23:09:36.163 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser 
+2020/07/27 23:09:36.443 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser/list?limit=10&offset=0&sortOrder=asc&search=%7B%7D&_=1595862576273 
+2020/07/27 23:09:36.712 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser 
+2020/07/27 23:09:37.001 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser/list?limit=10&offset=0&sortOrder=asc&search=%7B%7D&_=1595862576815 
+2020/07/27 23:09:39.000 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser/edit/3 
+2020/07/27 23:09:41.736 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser 
+2020/07/27 23:09:41.966 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser/list?limit=10&offset=0&sortOrder=asc&search=%7B%7D&_=1595862581866 
+2020/07/27 23:10:21.881 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:10:48.209 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser 
+2020/07/27 23:10:48.446 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/backenduser/list?limit=10&offset=0&sortOrder=asc&search=%7B%7D&_=1595862648346 
+2020/07/27 23:10:57.077 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:12:07.141 [I] [main.go:30]  初始化日志 
+2020/07/27 23:12:07.142 [I] [main.go:35]  初始化数据库 
+2020/07/27 23:12:07.308 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/27 23:12:09.750 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/login?redirect_to=%2Fadmin 
+2020/07/27 23:12:09.848 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/login?redirect_to=%2Fadmin 
+2020/07/27 23:12:14.642 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin/login?redirect_to=/admin 
+2020/07/27 23:12:14.673 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:12:32.173 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:16:55.670 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:16:56.621 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:17:24.274 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:17:25.841 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:17:26.799 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:17:34.031 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:17:39.495 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/27 23:17:50.442 [I] [filter.go:33]  ---MenuFilterFunc------------redirectTo =  /admin 
+2020/07/28 21:20:52.739 [I] [main.go:30]  初始化日志 
+2020/07/28 21:20:52.739 [I] [main.go:35]  初始化数据库 
+2020/07/28 21:20:53.761 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/28 21:35:51.228 [I] [main.go:30]  初始化日志 
+2020/07/28 21:35:51.229 [I] [main.go:35]  初始化数据库 
+2020/07/28 21:35:51.406 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/28 21:38:27.077 [I] [main.go:30]  初始化日志 
+2020/07/28 21:38:27.077 [I] [main.go:35]  初始化数据库 
+2020/07/28 21:38:27.290 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/28 21:44:39.374 [I] [main.go:30]  初始化日志 
+2020/07/28 21:44:39.374 [I] [main.go:35]  初始化数据库 
+2020/07/28 21:44:39.582 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/28 21:48:57.941 [I] [main.go:30]  初始化日志 
+2020/07/28 21:48:57.941 [I] [main.go:35]  初始化数据库 
+2020/07/28 21:48:58.156 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/28 22:09:40.680 [I] [main.go:30]  初始化日志 
+2020/07/28 22:09:40.680 [I] [main.go:35]  初始化数据库 
+2020/07/28 22:09:40.865 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/28 22:10:12.526 [I] [main.go:30]  初始化日志 
+2020/07/28 22:10:12.527 [I] [main.go:35]  初始化数据库 
+2020/07/28 22:10:20.890 [I] [main.go:30]  初始化日志 
+2020/07/28 22:10:20.890 [I] [main.go:35]  初始化数据库 
+2020/07/28 22:10:21.079 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/28 22:16:07.293 [I] [main.go:30]  初始化日志 
+2020/07/28 22:16:07.293 [I] [main.go:35]  初始化数据库 
+2020/07/28 22:16:07.483 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/28 22:23:25.137 [I] [main.go:30]  初始化日志 
+2020/07/28 22:23:25.138 [I] [main.go:35]  初始化数据库 
+2020/07/28 22:23:25.317 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/28 22:23:31.048 [I] [main.go:30]  初始化日志 
+2020/07/28 22:23:31.048 [I] [main.go:35]  初始化数据库 
+2020/07/28 22:23:49.427 [I] [main.go:30]  初始化日志 
+2020/07/28 22:23:49.427 [I] [main.go:35]  初始化数据库 
+2020/07/28 22:23:49.612 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/28 22:25:55.429 [I] [main.go:30]  初始化日志 
+2020/07/28 22:25:55.430 [I] [main.go:35]  初始化数据库 
+2020/07/28 22:25:55.610 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/28 22:30:24.833 [I] [main.go:30]  初始化日志 
+2020/07/28 22:30:24.833 [I] [main.go:35]  初始化数据库 
+2020/07/28 22:30:25.027 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/29 21:04:20.164 [I] [main.go:30]  初始化日志 
+2020/07/29 21:04:20.165 [I] [main.go:35]  初始化数据库 
+2020/07/29 21:04:20.425 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/29 21:04:37.111 [I] [main.go:30]  初始化日志 
+2020/07/29 21:04:37.111 [I] [main.go:35]  初始化数据库 
+2020/07/29 21:05:26.611 [I] [main.go:30]  初始化日志 
+2020/07/29 21:05:26.611 [I] [main.go:35]  初始化数据库 
+2020/07/29 21:05:26.911 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/29 21:06:52.649 [I] [main.go:30]  初始化日志 
+2020/07/29 21:06:52.649 [I] [main.go:35]  初始化数据库 
+2020/07/31 20:38:40.773 [I] [main.go:30]  初始化日志 
+2020/07/31 20:38:40.773 [I] [main.go:35]  初始化数据库 
+2020/07/31 20:38:41.432 [I] [asm_amd64.s:1357]  http server Running on http://:8080

@@ -1,0 +1,66 @@
+
+<script>
+    $(function () {
+        var url = "/admin/menus/treegrid"
+        var columns = [
+            // {
+            //     field: 'check',
+            //     checkbox: true,
+            //     formatter: function (value, row, index) {
+            //         if (row.check === true) {
+            //             // 设置选中
+            //             return {
+            //                 checked: true
+            //             }
+            //         }
+            //     }
+            // },
+            {
+                field: 'id',
+                title: 'ID',
+                sortable: true,
+                align: 'center'
+            },
+            {
+                field: 'title',
+                title: '名称'
+            },
+            {
+                field: 'type',
+                title: '类型',
+                formatter: function (value, row, index) {
+                    
+                    if(row.type==2) {
+                        return '<span class="badge badge-primary">菜单</span>'
+                    }else if(row.type==3){
+                        return '<span class="badge badge-success">按钮</span>'
+                    }
+                    return ""
+                }
+            },
+            {
+                field: 'name',
+                title: '唯一标记'
+            },
+            {
+                field: 'link',
+                title: '路由'
+            },
+            // {
+            //     field: "operate",
+            //     title: '操作',
+            //     align: "center",
+            //     width: "250px",
+            //     formatter: function (value, item, index)  {
+
+            //     }
+            // }
+        ]
+
+        var table = new TableInit(url, columns , 1)
+        table.Init()
+        var button = new ButtonInit()
+        button.Init()
+    })
+
+</script>

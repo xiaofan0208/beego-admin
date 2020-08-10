@@ -1,0 +1,38 @@
+<script src="/static/AdminLTE3.0/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="/static/AdminLTE3.0/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+<!-- Bootstrap 4 -->
+<script src="/static/AdminLTE3.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<!-- <script src="/static/AdminLTE3.0/dist/js/adminlte.min.js"></script> -->
+
+<script src="/static/AdminLTE3.0/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="/static/js/my-sweetalert2.js?v=1.0"></script>
+
+<script src="/static/js/my-treeview.js?v=3.0"></script>
+<script src="/static/AdminLTE3.0/dist/js/demo.js"></script>
+<script>
+    $(function () {
+        // 创建菜单
+        var treeMenu = new TreeMenuView("#treemenu", {{.Menus }})
+        treeMenu.createview()
+
+        InitTreeMenu()
+    })
+
+
+    function InitTreeMenu() {
+        $('#sidebar li  > a').on('click', function () {
+            if ($(this).parent().hasClass("menu-open") == true) {
+                $(this).parent().removeClass("menu-open")
+            } else {
+                $(this).parent().addClass("menu-open")
+            }
+            $(this).addClass('active');
+            $(this).parent().siblings('.has-treeview.menu-open').find('> a').trigger('click');
+            $(this).parents('.has-treeview.menu-open').find('> a').addClass('active');
+        });
+
+    }
+</script>
