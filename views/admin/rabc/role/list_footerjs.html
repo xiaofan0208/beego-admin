@@ -1,0 +1,115 @@
+
+<script>
+    $(function () {
+
+        var url = "{{.listURL}}"
+        var columns = [{
+                checkbox: true
+            }, {
+                field: 'Id',
+                title: 'ID',
+                align: "center",
+                sortable: true,
+            }, {
+                field: 'Name',
+                title: '名字',
+                align: "center",
+                sortable: true,
+            },
+            {
+                field: 'Created',
+                title: '创建时间',
+                align: "center",
+                formatter: function (value, item, index) {
+                    var d = new Date(item.Created);
+                    return formatDate(d)
+                }
+            },
+            {
+                field: "operate",
+                title: '操作',
+                align: "center",
+                width: "250px",
+                formatter: function (value, item, index) {
+                    var btnGroup = new Array()
+                    var checkBtn = {
+                        href: "",
+                        name: "查看",
+                        click: "",
+                    }
+                    var editBtn = {
+                        href: "/admin/role/edit/" + item.Id ,
+                        name: "编辑",
+                        click: "",
+                    }
+
+                    var deleteBtn = {
+                        href: "",
+                        name: "删除",
+                        click: "deleteFunc",
+                    }
+                    btnGroup.push(checkBtn)
+                    btnGroup.push(editBtn)
+                    btnGroup.push(deleteBtn)
+                    return AddOperateBtnGroup(btnGroup, item)
+                }
+            }
+        ]
+        //1.初始化Table
+        var fixedNumber = 2 //  固定列
+        var oTable = new TableInit(url, columns, fixedNumber);
+        oTable.Init();
+
+        //2.初始化Button的点击事件
+        var oButtonInit = new ButtonInit();
+        oButtonInit.Init( {{.createURL}} );
+
+    });
+
+
+
+    // 删除
+    function deleteFunc(item) {
+        showModal(item.Id)
+    }
+    // 弹出模块框
+    function showModal(id) {
+        $('#deleteModal').modal('show')
+        $("#modalDataId").val(id)
+    }
+    // 模态框确定
+    function deleteSure() {
+        var id = $("#modalDataId").val()
+        $('#deleteModal').modal('hide')
+        deleteBatch(id)
+    }
+    // 批量删除
+    function deleteBatch(ids) {
+        var url = "/admin/role/delete"
+        $.ajax({
+            type: "POST", //请求方式
+            dataType: "json", //请求的媒体类型
+            url: url, //请求地址
+            data: {
+                ids: ids
+            }, //数据，json字符串
+            //请求成功
+            success: function (result) {
+                console.log(result);
+                // 删除成功
+                if (result != undefined && result.code == 0) {
+                    var tableId = '#tb_bootstrap-table'
+                    $(tableId).bootstrapTable('refresh');
+                    swalDefaultSuccess("删除成功")
+                }
+            },
+            //请求失败，包含具体的错误信息
+            error: function (e) {
+                swalDefaultError(e.msg)
+            }
+        });
+
+    }
+</script>
+
+ 

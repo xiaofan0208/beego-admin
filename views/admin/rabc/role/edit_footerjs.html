@@ -1,0 +1,54 @@
+
+<script>
+	$(function () {
+		var tableId = "#RoleForm"
+
+		var fields = {
+				Name: {
+					message: '用户名验证失败',
+					validators: {
+						notEmpty: {
+							message: '用户名不能为空'
+						},
+					}
+				}
+			}
+		Validator(tableId , {{.listURL}} , fields)
+	})
+</script>
+
+
+<script>
+	function DeleteFunc(){
+		var id = $("#Id").val()
+		deleteBatch(id)
+	}
+	// 批量删除
+	function deleteBatch(ids) {
+		var url = "/admin/role/delete"
+		var JumpURL = "{{.listURL}}"
+        $.ajax({
+            type: "POST", //请求方式
+            dataType: "json", //请求的媒体类型
+            url: url, //请求地址
+            data: {
+                ids: ids
+            }, //数据，json字符串
+            //请求成功
+            success: function (result) {
+                console.log(result);
+                // 删除成功
+                if (result != undefined && result.code == 0) {
+					success_prompt_alert("删除成功" , function(){
+						window.location.href=JumpURL
+					})
+                }
+            },
+            //请求失败，包含具体的错误信息
+            error: function (e) {
+                swalDefaultError(e.msg)
+            }
+        });
+
+    }
+</script>

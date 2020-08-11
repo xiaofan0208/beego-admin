@@ -1,0 +1,67 @@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">详情</h3>
+    </div>
+
+    <div class="card-body">
+        <form id="RoleForm" method="post" action="{{.formURL}}">
+            <input type="hidden" id="Id" name="Id" value="{{.Record.Id}}">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Name">角色名称</label>
+                        <input type="text" class="form-control" id="Name" name="Name" value="{{.Record.Name}}">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Status">状态</label>
+                        <div>
+                            <select class="form-control" id="Status" name="Status">
+                                <option value="">--请选择--</option>
+                                <option value=1 {{if .Record}}{{if compare  ( .Record.Status) 1}}selected{{end}}{{end}}>启用</option>
+                                <option value=2 {{if .Record}}{{if compare  ( .Record.Status) 2}}selected{{end}}{{end}}>禁用</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Created">创建时间</label>
+                        <input type="hidden" class="form-control" id="Created" name="Created" value="{{.Record.Created}}" >
+                        <input type="text" class="form-control" value="{{if .Record}}{{.Record.Created | timeformat}}{{end}}" readonly>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Updated">更新时间</label>
+                        <input type="hidden" class="form-control" id="Updated" name="Updated" value="{{.Record.Updated}}" >
+                        <input type="text" class="form-control"  value="{{if .Record}}{{.Record.Updated | timeformat}}{{end}}" readonly>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+<div>
+    {{if .canDelete}}
+    <button type="button" class="btn btn-danger"  onclick="DeleteFunc()" >删除</button>
+    {{end}}
+
+    {{if or .canEdit .canCreate}}
+    <button  type="submit" class="btn btn-success" style="left: 20px;" id="btnFormSubmit">保存</button>
+    {{end}}
+    <a href="{{.listURL}}">
+        <button type="button" class="btn btn-primary" style="left: 20px;">列表</button>
+    </a>
+</div>

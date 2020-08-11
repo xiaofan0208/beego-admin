@@ -22,12 +22,12 @@
                 align: 'center'
             },
             {
-                field: 'title',
+                field: 'title',  align: 'center',
                 title: '名称'
             },
             {
                 field: 'type',
-                title: '类型',
+                title: '类型', align: 'center',
                 formatter: function (value, row, index) {
                     
                     if(row.type==2) {
@@ -41,6 +41,13 @@
             {
                 field: 'name',
                 title: '唯一标记'
+            },
+            {
+                field: 'icon',
+                title: 'Icon',
+                formatter: function (value, item, index) {
+                    return "<span class='"+ value +  "'></span>"
+                }
             },
             {
                 field: 'link',
